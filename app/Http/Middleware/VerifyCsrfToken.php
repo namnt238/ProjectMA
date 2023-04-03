@@ -14,6 +14,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'http://127.0.0.1:8000/fileUploadToCloud/s3',
         'http://127.0.0.1:8000/deleteFile',
-        'http://127.0.0.1:8000/fileDeleteCloud/s3/2_1680347641.png'
+        'http://127.0.0.1:8000/fileUploadToCloud/google',
+        'http://127.0.0.1:8000/fileDeleteCloud/google/1CgKtpYVSzsrPg9topDxq1Tld01ckSc9i'
     ];
 }

@@ -24,7 +24,7 @@ Route::get('/getAllFileUploadCloud/{option}',[
     'getAllFileUpload'
 ]);
 
-Route::get('/getFileUpload/{option}/{id}',[
+Route::get('/getFileUpload/{option}/{key}',[
     FileUploadController::class,
     'getFileUpload'
 ]);

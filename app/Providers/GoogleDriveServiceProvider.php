@@ -34,7 +34,7 @@ class GoogleDriveServiceProvider extends ServiceProvider
             $client->setClientId($config['clientId']);
             $client->setClientSecret($config['clientSecret']);
             $client->refreshToken($config['refreshToken']);
-            $client->setScopes(array(
+            $client->addScope(array(
                 'https://www.googleapis.com/auth/drive.file',
     //            'https://www.googleapis.com/auth/plus.login',
                 'https://www.googleapis.com/auth/userinfo.email',
