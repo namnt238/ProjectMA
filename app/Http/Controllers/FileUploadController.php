@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-// use Illuminate\Filesystem\FilesystemAdapter;
-// use Illuminate\Filesystem\FilesystemAdapter;
 
 class FileUploadController extends Controller
 {
@@ -15,6 +12,9 @@ class FileUploadController extends Controller
             return $s3->getFileUpload($key);
         }elseif ($option =='google'){
             $google = new GoogleDriveController();
+            return $google->getFileUpload($key);
+        }elseif ($option =='dropbox'){
+            $google = new DropboxCloudController();
             return $google->getFileUpload($key);
         }else{
             return response()->json("{$option}");
@@ -28,6 +28,9 @@ class FileUploadController extends Controller
         }elseif ($option =='google'){
             $google = new GoogleDriveController();
             return $google->getAllFileUpload();
+        }elseif ($option =='dropbox'){
+            $google = new DropboxCloudController();
+            return $google->getAllFileUpload();
         }else{
             return response()->json("{$option}");
         }
@@ -39,6 +42,9 @@ class FileUploadController extends Controller
             return $s3->fileUploadToCloud($request);
         }elseif($option =='google'){
             $google = new GoogleDriveController();
+            return $google->fileUploadToCloud($request);
+        }elseif($option =='dropbox'){
+            $google = new DropboxCloudController();
             return $google->fileUploadToCloud($request);
         }else{
             return response()->json("{$option}");
@@ -52,6 +58,9 @@ class FileUploadController extends Controller
         }elseif($option =='google'){
             $google = new GoogleDriveController();
             return $google->fileDownLoadCloud($key);
+        }elseif($option =='dropbox'){
+            $google = new DropboxCloudController();
+            return $google->fileDownLoadCloud($key);
         }else{
             return response()->json("{$option}");
         }
@@ -62,7 +71,7 @@ class FileUploadController extends Controller
             $s3 = new S3CloudController();
             return $s3->fileDeleteCloud($key);
         }elseif($option =='google'){
-            $google = new GoogleDriveController();
+            $google = new DropboxCloudController();
             return $google->fileDeleteCloud($key);
         }else{
             return response()->json("{$option}");

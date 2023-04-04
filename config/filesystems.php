@@ -63,7 +63,12 @@ return [
             'visibility' => 'private',
             // 'credentials' => [ env('AWS_ACCESS_KEY_ID'), env('AWS_SECRET_ACCESS_KEY')], 
         ],
-
+        'dropbox'=>[
+            'driver'=>'dropbox',
+            'key'=>env('DROPBOX_TOKEN'),
+            'secret'=>env('DROPBOX_SECRET'),
+            'authorization_token' => env('DROPBOX_ACCESS_TOKEN'),
+        ],
     ],
 
     /*
