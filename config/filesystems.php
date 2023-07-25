@@ -42,6 +42,14 @@ return [
             'visibility' => 'public',
         ],
 
+        'google_drive' => [
+            'driver' => 'google_drive',
+            'clientId' => env('GOOGLE_DRIVE_CLIENT_ID'),
+            'clientSecret' => env('GOOGLE_DRIVE_CLIENT_SECRET'),
+            'refreshToken' => env('GOOGLE_DRIVE_REFRESH_TOKEN'),
+            'folderId' => env('GOOGLE_DRIVE_FOLDER_ID'),
+        ],    
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -50,9 +58,17 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
-            'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
+            // 'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
+            // 'throw' => true,
+            'visibility' => 'private',
+            // 'credentials' => [ env('AWS_ACCESS_KEY_ID'), env('AWS_SECRET_ACCESS_KEY')], 
         ],
-
+        'dropbox'=>[
+            'driver'=>'dropbox',
+            'key'=>env('DROPBOX_TOKEN'),
+            'secret'=>env('DROPBOX_SECRET'),
+            'authorization_token' => env('DROPBOX_ACCESS_TOKEN'),
+        ],
     ],
 
     /*
